@@ -1,32 +1,17 @@
 import React, { PureComponent } from 'react';
 import Artist from './Artist';
+import { getArtists } from '../../services/getArtistsApi';
 
 export default class Artists extends PureComponent {
     state = {
-      artists: [
-        {
-          name: 'Nirvana',
-          country: 'US'
-        },
-        {
-          name: 'Nirvana',
-          country: 'US'
-        },
-        {
-          name: 'Nirvana',
-          country: 'US'
-        },
-        {
-          name: 'Nirvana',
-          country: 'US'
-        },
-        {
-          name: 'Nirvana',
-          country: 'US'
-        }
-      ]
+      artists: []
     };
-    
+    componentDidMount() {
+      getArtists()
+        .then(response => {
+          this.setState({ artists: response.artists });
+        });
+    }
     render() {
       const makeArtists = this.state.artists.map(artist => {
         return (<Artist key={artist.id} artist={artist}/>);
