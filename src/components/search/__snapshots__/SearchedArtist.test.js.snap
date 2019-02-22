@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchedArtist matches a snapshot 1`] = `
+<a
+  href="/Nirvana/5b11f4ce-a62d-471e-81fc-a69a8278c7da"
+  onClick={[Function]}
+>
+  <h2>
+    Nirvana
+  </h2>
+  <h2>
+    5b11f4ce-a62d-471e-81fc-a69a8278c7da
+  </h2>
+</a>
+`;
