@@ -6,3 +6,11 @@ export const getArtists = (artistName) => {
       artists: json.artists
     }));
 };
+
+export const getArtistSongs = (artistID) => {
+  return fetch(`http://musicbrainz.org/ws/2/artist/${artistID}?fmt=json&inc=works`)
+    .then(res => res.json())
+    .then(json => ({
+      songs: json.songs
+    }));
+};
