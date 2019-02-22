@@ -9,7 +9,7 @@ function ArtistWork({ values }) {
     const { work, name } = values;
 
     return (
-        <Link to={`/${work}`}>
+        <Link to={`/${name}/${work}`}>
             <h2> {work}</h2>
             <h2> {name}</h2>
         </Link>

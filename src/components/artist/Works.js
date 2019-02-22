@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Work from './Work';
 
 function Works({ results }) {
+    
     const worksList = results.map(work => {
-        return <li key={work.id}> {work.title}</li>;
+        const send = { name: work.title, id: work.id };
+
+        return <li key={work.id} > <Work values={send}/></li>;
     });
     return (
         <ul>{worksList}</ul>
