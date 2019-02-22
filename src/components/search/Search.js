@@ -5,7 +5,8 @@ import SearchResults from './SearchResults';
 export default class Search extends PureComponent {
     state = {
         artist: '',
-        results: []
+        results: [],
+        selectedArtist: ''
     };
 
     handleSearch = ({ target }) => {
