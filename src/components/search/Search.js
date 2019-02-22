@@ -20,8 +20,6 @@ export default class Search extends PureComponent {
             });
     }
 
-   
-
     render() {
         return (
             <>
