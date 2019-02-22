@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Artist from './Artist';
+import { withPaging } from '../paging/Paging';
 
 export default class Artists extends PureComponent {
   static propTypes = {
@@ -19,3 +20,4 @@ export default class Artists extends PureComponent {
     );
   }
 }
+export const ArtistsWithPaging = withPaging(Artists);

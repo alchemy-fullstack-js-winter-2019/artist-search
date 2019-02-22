@@ -8,6 +8,8 @@ export const withPaging = ComponentToPage => {
       totalPages: 1
     };
 
+    staticpropType
+
     incrementCurrentPage = () => {
       this.setState(state => ({ currentPage: state.currentPage + 1 }));
     };

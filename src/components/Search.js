@@ -1,18 +1,20 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { getArtists } from './services/artistApi';
-import Artists from './artists/Artists';
+import { ArtistsWithPaging } from './artists/Artists';
 
-export default class Search extends PureComponent {
+export default class Search extends Component {
   state = {
     artistText: '',
-    artists: []
+    artists: [],
+    totalPages: 1
   }
   handleSearch = event => {
     event.preventDefault();
     getArtists({ search: this.state.artistText, page: 1 })
       .then(res => {
-        this.setState({ artists: res.results });
-        console.log(this.state.artists);
+        this.setState({ artists: res.results, totalPages: res.totalPages });
+        console.log(this.state.totalPages);
+        console.log(res.totalPages);
       });
   }
 
@@ -21,7 +23,7 @@ export default class Search extends PureComponent {
   }
 
   render() {
-    const { artistText, artists } = this.state;
+    const { artistText, artists, totalPages } = this.state;
     return (
     <>
       <h1>Search!!!</h1>
@@ -32,7 +34,12 @@ export default class Search extends PureComponent {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <Artists artists={artists} />
+      <Paging>
+        
+      </Paging>
+      <ArtistsWithPaging 
+        artists={artists} 
+        totalPages={totalPages} />
     </> 
     );
   }
