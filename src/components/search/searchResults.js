@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import SearchedArtist from './SearchedArtist';
 
 function SearchResults({ results }) {
-    console.log('results', results);
     const searchList = results.map(searched => {
         const send = { name: searched.name, id: searched.id };
-        return <li key={searched.id}> <SearchedArtist values={send}/></li>;
+        return <li key={searched.id}> <SearchedArtist 
+            values={send}
+        /></li>;
     });
     return (
         <ul>{searchList}</ul>
@@ -14,7 +15,7 @@ function SearchResults({ results }) {
 }
 
 SearchResults.propTypes = {
-    results: PropTypes.array
+    results: PropTypes.array,
 };
 
 export default SearchResults;
