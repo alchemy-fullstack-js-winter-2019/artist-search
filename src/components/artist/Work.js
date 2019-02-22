@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 
 function ArtistWork({ values }) {
-    const { work, name } = values;
+    const { work, song } = values;
 
     return (
-        <Link to={`/${name}/${work}`}>
+        <Link to={`/songs/${song}/${work}`}>
             <h2> {work}</h2>
-            <h2> {name}</h2>
+            <h2> {song}</h2>
         </Link>
     );
 }

@@ -7,14 +7,13 @@ export default class Artist extends PureComponent {
 
     state = {
         works: [],
-        id: this.props.match.params.id
+        artist: this.props.match.params.name
     }
 
     getWorksApi  = () => {
         getWorks(this.state.id)
             .then(res => {
                 this.setState({ works: res.works });
-                console.log(res.works);
             });
     }
 
@@ -23,7 +22,6 @@ export default class Artist extends PureComponent {
     }
     
     render() {
-        console.log('props', this.props);
         const { works } = this.state;  
         return (
             <>

@@ -5,8 +5,9 @@ import Work from './Work';
 function Works({ results }) {
     
     const worksList = results.map(work => {
-        const send = { name: work.title, id: work.id };
+        const send = { song: work.title, work: work.id };
 
+        console.log('send', send);
         return <li key={work.id} > <Work values={send}/></li>;
     });
     return (
