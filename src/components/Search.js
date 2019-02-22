@@ -16,15 +16,13 @@ export default class Search extends Component {
   }
  
   handleSearch = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {
-      console.log('hello', this.state);
-    });
-  }
+    this.setState({ [target.name]: target.value });
+  };
 
   onSubmit = event => {
     event.preventDefault();
     this.getSearchedArtists();
-  }
+  };
 
   render() {
     const { artists } = this.state;

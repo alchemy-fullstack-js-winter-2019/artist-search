@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom';
 
 function Artists({ artists }) {
 
-
   const makeArtists = artists.map(artist => {
-    console.log(artist, 'artistscomponent');
     return (<Link to={`/artist/${artist.id}`} key={artist.id} ><Artist artist={artist}/></Link>);
   });
+  
   return (
     <>
       <ul>

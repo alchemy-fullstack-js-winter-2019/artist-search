@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 function Artist({ artist }) {
-  
   return (
       <>
       <li>
@@ -13,7 +11,6 @@ function Artist({ artist }) {
       </>
   );
 }
-
 
 Artist.propTypes = {
   artist: PropTypes.object.isRequired
