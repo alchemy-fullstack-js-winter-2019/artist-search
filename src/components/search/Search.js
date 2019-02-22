@@ -4,7 +4,7 @@ import { getArtist } from '../services/musicbrainApi';
 export default class Search extends PureComponent {
     state = {
         artist: null,
-        results: null
+        results: []
     };
 
     handleSearch = ({ target }) => {
@@ -13,18 +13,16 @@ export default class Search extends PureComponent {
     }
     getArtistApi  = (event) => {
         event.preventDefault();
-
         getArtist(this.state.artist)
             .then(res => {
-                console.log(res.artists);
                 this.setState({ results: res.artists });
+                console.log(res.artists);
             });
     }
 
    
 
     render() {
-        const { artist } = this.state;
         return (
             <>
                 <h1> ARTIST SEARCH COMP</h1>
