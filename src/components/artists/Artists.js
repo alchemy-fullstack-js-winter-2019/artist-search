@@ -10,7 +10,8 @@ export default class Artists extends PureComponent {
   }
 
   static propTypes = {
-    artistText: PropTypes.string
+    artistText: PropTypes.string,
+    updateTotalPages: PropTypes.func
   }
 
   componentDidUpdate(prevProps) {
@@ -18,6 +19,7 @@ export default class Artists extends PureComponent {
       getArtists({ search: this.props.artistText, page: 1 })
         .then(res => {
           this.setState({ artists: res.results });
+          this.props.updateTotalPages(res.totalPages);
         });
     }
   }
