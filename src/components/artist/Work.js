@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 function Work({ values }) {
     const { song, artistName } = values;
-    console.log('WORK COMP', values.song);
 
     return (
         <>

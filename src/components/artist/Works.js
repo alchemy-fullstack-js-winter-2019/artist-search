@@ -12,7 +12,6 @@ function Works({ results, artist }) {
             artistName: artist
         };
 
-        console.log('values', values);
         return (
             <Link to={`/songs/${values.artistName}/${values.song}`} key={work.id}>
                 <li> 

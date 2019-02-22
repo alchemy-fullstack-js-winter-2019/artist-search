@@ -15,7 +15,6 @@ export default class Lyrics extends PureComponent {
   getLyricsApi  = () => {
       getLyrics(this.state.title, this.state.artist)
           .then(res => {
-              console.log('res', res);
               this.setState({ lyrics: res.lyrics });
           });
   }
