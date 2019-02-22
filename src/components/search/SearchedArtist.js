@@ -8,7 +8,7 @@ function SearchedArtist({ values }) {
 
     
     return (
-        <Link to={`/artist/${id}`}>
+        <Link to={`/${name}/${id}`}>
             <h2>{name}</h2>
             <h2>{id}</h2>
         </Link>
