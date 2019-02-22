@@ -3,16 +3,40 @@ import Artist from './Artist';
 
 export default class Artists extends PureComponent {
     state = {
-      artists: ['Im an artist text']
+      artists: [
+        {
+          name: 'Nirvana',
+          country: 'US'
+        },
+        {
+          name: 'Nirvana',
+          country: 'US'
+        },
+        {
+          name: 'Nirvana',
+          country: 'US'
+        },
+        {
+          name: 'Nirvana',
+          country: 'US'
+        },
+        {
+          name: 'Nirvana',
+          country: 'US'
+        }
+      ]
     };
-
+    
     render() {
-      const  { artists } = this.state;
+      const makeArtists = this.state.artists.map(artist => {
+        return (<Artist key={artist.id} artist={artist}/>);
+      });
+
       return (
       <>
-        <Artist
-          artists={artists}
-        />
+        <ul>
+          {makeArtists}
+        </ul>
       </>
       );
     }

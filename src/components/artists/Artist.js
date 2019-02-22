@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Artist({ artists }) {
+function Artist({ artist }) {
+  
 
   return (
       <>
-      <ul>
-        {artists}
-      </ul>
+      <li>
+        <h2>{artist.name}</h2>
+        <h3>{artist.country}</h3>
+      </li>
       </>
   );
 }
 
 
 Artist.propTypes = {
-  artists: PropTypes.array.isRequired
+  artist: PropTypes.object.isRequired
 };
 
 export default Artist;
