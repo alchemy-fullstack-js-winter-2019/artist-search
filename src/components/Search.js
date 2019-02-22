@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
-import { getArtists } from './services/artistApi';
 import { ArtistsWithPaging } from './artists/Artists';
 
 export default class Search extends Component {
   state = {
     artistText: '',
-    artists: [],
-    totalPages: 1
+    text: ''
   }
-  handleSearch = event => {
+
+  handleSubmit = (event) => {
     event.preventDefault();
-    getArtists({ search: this.state.artistText, page: 1 })
-      .then(res => {
-        this.setState({ artists: res.results, totalPages: res.totalPages });
-        console.log(this.state.totalPages);
-        console.log(res.totalPages);
-      });
+    this.setState({ artistText: this.state.text });
   }
 
   handleChange = ({ target }) => {
@@ -23,23 +17,20 @@ export default class Search extends Component {
   }
 
   render() {
-    const { artistText, artists, totalPages } = this.state;
+    const { artistText, text } = this.state;
     return (
     <>
       <h1>Search!!!</h1>
-      <form onSubmit={this.handleSearch}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Search Name:
-          <input type="text" name="artistText" value={artistText} onChange={this.handleChange}></input>
+          <input type="text" name="text" value={text} onChange={this.handleChange}></input>
         </label>
         <button type="submit">Submit</button>
       </form>
-      <Paging>
-        
-      </Paging>
       <ArtistsWithPaging 
-        artists={artists} 
-        totalPages={totalPages} />
+        artistText={artistText}
+      />
     </> 
     );
   }
