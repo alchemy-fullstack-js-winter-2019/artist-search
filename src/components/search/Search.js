@@ -12,6 +12,7 @@ export default class Search extends PureComponent {
     handleSearch = ({ target }) => {
         this.setState({ [target.name]: target.value });
     }
+
     getArtistApi  = (event) => {
         event.preventDefault();
         getArtist(this.state.artist)
@@ -20,7 +21,6 @@ export default class Search extends PureComponent {
             });
     }
     
-
     render() {
         const { results, artist } = this.state;
         return (
