@@ -14,7 +14,7 @@ export default class App extends Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path="/" component={Search} onSubmit={this.handleSearch}/>
+                    <Route exact path="/" component={Search}/>
                 </Switch>
             </Router>
         );

@@ -1,15 +1,27 @@
 import React, { PureComponent } from 'react';
+import { getArtist } from '../services/musicbrainApi';
 
 export default class Search extends PureComponent {
     state = {
-        artist: null
+        artist: null,
+        results: null
     };
 
     handleSearch = ({ target }) => {
-        console.log('target', target);
-        event.preventDefault();
+        
         this.setState({ [target.name]: target.value });
     }
+    getArtistApi  = (event) => {
+        event.preventDefault();
+
+        getArtist(this.state.artist)
+            .then(res => {
+                console.log(res.artists);
+                this.setState({ results: res.artists });
+            });
+    }
+
+   
 
     render() {
         const { artist } = this.state;
@@ -20,7 +32,7 @@ export default class Search extends PureComponent {
                     <label>Search for Artist
                         <input type="text" name="artist" onChange={this.handleSearch}/>
                     </label>
-                    <button>Search</button>
+                    <button onClick={this.getArtistApi}>Search</button>
                 </form>
             </>
         );
