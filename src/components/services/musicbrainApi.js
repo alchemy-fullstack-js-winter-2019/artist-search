@@ -10,4 +10,12 @@ export const getWorks = (id) => {
             return res.json();
         });
 };
+export const getLyrics = (title, artist) => {
+    return fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
+        .then(res => {
+            return res.json();
+        });
+};
+
+
 
