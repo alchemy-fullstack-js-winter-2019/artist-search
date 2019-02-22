@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from './Search';
-import Artist from './Artist';
+import Artist from './artists/Artist';
 import Work from './Work';
 import {
   BrowserRouter as Router,
