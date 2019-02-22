@@ -1,22 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Work from './Work';
+import { Link } from 'react-router-dom';
 
-function Works({ results }) {
+function Works({ results, artist }) {
     
     const worksList = results.map(work => {
-        const send = { song: work.title, work: work.id };
+        const values = { 
+            song: work.title, 
+            id: work.id, 
+            artistName: artist
+        };
 
-        console.log('send', send);
-        return <li key={work.id} > <Work values={send}/></li>;
+        console.log('values', values);
+        return (
+            <Link to={`/songs/${values.artistName}/${values.song}`} key={work.id}>
+                <li> 
+                    <Work values={values}/>
+                </li>
+            </Link> 
+        );
     });
+    
     return (
-        <ul>{worksList}</ul>
+        <ul>{worksList}</ul> 
     );
 }
 
 Works.propTypes = {
     results: PropTypes.array,
+    artist: PropTypes.string,
 };
 
 export default Works;

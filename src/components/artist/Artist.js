@@ -7,6 +7,7 @@ export default class Artist extends PureComponent {
 
     state = {
         works: [],
+        id: this.props.match.params.id,
         artist: this.props.match.params.name
     }
 
@@ -22,11 +23,11 @@ export default class Artist extends PureComponent {
     }
     
     render() {
-        const { works } = this.state;  
+        const { works, artist } = this.state;  
         return (
             <>
                 <h1> Artist component</h1>
-                <Works results={works} />
+                <Works results={works} artist={artist} />
             </>
         );
     }

@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
-
-
-
-function ArtistWork({ values }) {
-    const { work, song } = values;
+function Work({ values }) {
+    const { song, artistName } = values;
+    console.log('WORK COMP', values.song);
 
     return (
-        <Link to={`/songs/${song}/${work}`}>
-            <h2> {work}</h2>
+        <>
             <h2> {song}</h2>
-        </Link>
+            <h2> {artistName}</h2>
+        </>
     );
 }
-ArtistWork.propTypes = {
+Work.propTypes = {
     values: PropTypes.object,
 };
 
-export default ArtistWork;
+export default Work;

@@ -16,8 +16,8 @@ export default class App extends Component {
                 <Switch>
                     <Route exact path="/" component={Search}/>
                     <Route exact path='/:name/:id' component={Artist}/>
+                    <Route exact path='/songs/:artistName/:song' component={Lyrics}/>
                     <Route exact path='/:name/:work/:id' component={Work}/>
-                    <Route exact path='/:name/:work' component={Lyrics}/>
                 </Switch>
             </Router>
         );
