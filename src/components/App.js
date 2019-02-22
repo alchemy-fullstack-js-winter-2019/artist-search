@@ -5,7 +5,6 @@ import {
     Switch
 } from 'react-router-dom';
 import Search from './search/Search';
-import Home from './home/Home';
 
 
 export default class App extends Component {
@@ -14,8 +13,7 @@ export default class App extends Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/search" component={Search}/>
+                    <Route exact path="/" component={Search}/>
                 </Switch>
             </Router>
         );
