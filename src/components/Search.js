@@ -1,14 +1,21 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-function Search() {
-  return (
-    <h1>Sup Searchie</h1>
-  );
+export default class Search extends Component {
+  state = {
+    search: 'blahblah'
+  };
+
+  onSubmit() {
+    console.log('hello');
+  }
+
+  render() {
+    return (
+      < >
+      <h1>Sup Searchie</h1>
+      <button onClick={this.onSubmit}>Yo</button>
+      </>
+    );
+  }
 }
 
-Search.propTypes = {
-
-}
-
-export default Search;

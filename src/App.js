@@ -10,13 +10,13 @@ import Search from '../src/components/Search';
 function App() {
   return (
     <Router>
-      < >
-        <Route exact path='/' component={Search} />
-        {/* <Route exact path='/about' component={About} /> */}
-        {/* <Route exact path='/artist/:id' component={Artist} /> */}
-        {/* <Route exact path='/work/:id' component={Song} /> */}
-        {/* <Redirect to='/home' /> */}
-      </>
+        < >
+          <Route exact path='/' component={Search} />
+          {/* <Route exact path='/about' component={About} /> */}
+          {/* <Route exact path='/artist/:id' component={Artist} /> */}
+          {/* <Route exact path='/work/:id' component={Song} /> */}
+          {/* <Redirect to='/home' /> */}
+        </>
     </Router>
   );
 }
