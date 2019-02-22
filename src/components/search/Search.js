@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { getArtist } from '../services/musicbrainApi';
+import SearchResults from './SearchResults';
 
 export default class Search extends PureComponent {
     state = {
-        artist: null,
+        artist: '',
         results: []
     };
 
     handleSearch = ({ target }) => {
-        
         this.setState({ [target.name]: target.value });
     }
     getArtistApi  = (event) => {
@@ -21,15 +21,19 @@ export default class Search extends PureComponent {
     }
 
     render() {
+        const { results, artist } = this.state;
         return (
             <>
                 <h1> ARTIST SEARCH COMP</h1>
                 <form>
                     <label>Search for Artist
-                        <input type="text" name="artist" onChange={this.handleSearch}/>
+                        <input type="text" name="artist" value={artist} onChange={this.handleSearch}/>
                     </label>
                     <button onClick={this.getArtistApi}>Search</button>
                 </form>
+                <div>
+                    <SearchResults results={results}/>
+                </div>
             </>
         );
     }

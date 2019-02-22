@@ -1,16 +1,19 @@
-// import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // import SearchedArtist from './SearchedArtist';
 
-// export class SearchResults extends Component {
+function SearchResults({ results }) {
+    console.log('results', results);
+    const searchList = results.map(searched => {
+        return <li key={searched.id}>{searched.name} </li>;
+    });
+    return (
+        <ul>{searchList}</ul>
+    ); 
+}
 
-//     render() {
-//         const searchList = this.state.searchList.map(searched => {
-//             return <li key={searched}>{searched} </li>;
-//         });
-//         return (
-//             <ul>{searchList}</ul>
-//         );
-//     }
-// }
+SearchResults.propTypes = {
+    results: PropTypes.array
+};
 
-// export default SearchResults;
+export default SearchResults;
