@@ -1,12 +1,19 @@
 import React, { PureComponent } from 'react';
+import { getArtists } from './services/artistApi';
+import Artists from './artists/Artists';
 
 export default class Search extends PureComponent {
   state = {
-    artistText: ''
+    artistText: '',
+    artists: []
   }
   handleSearch = event => {
-    console.log(this.state.artistText);
     event.preventDefault();
+    getArtists({ search: this.state.artistText, page: 1 })
+      .then(res => {
+        this.setState({ artists: res.results });
+        console.log(this.state.artists);
+      });
   }
 
   handleChange = ({ target }) => {
@@ -14,7 +21,7 @@ export default class Search extends PureComponent {
   }
 
   render() {
-    const { artistText } = this.state;
+    const { artistText, artists } = this.state;
     return (
     <>
       <h1>Search!!!</h1>
@@ -25,6 +32,7 @@ export default class Search extends PureComponent {
         </label>
         <button type="submit">Submit</button>
       </form>
+      <Artists artists={artists} />
     </> 
     );
   }
