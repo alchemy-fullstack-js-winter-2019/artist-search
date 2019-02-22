@@ -6,7 +6,8 @@ import {
   // Link 
 } from 'react-router-dom';
 import Search from '../src/components/Search';
-import Artist from '../src/components/artists/Artist';
+import Songs from '../src/components/songs/Songs';
+// import Song from '../src/components/songs/Song';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         < >
           <Route exact path='/' component={Search} />
           {/* <Route exact path='/about' component={About} /> */}
-          <Route exact path='/artist/:id' component={Artist} />
+          <Route exact path='/artist/:id' component={Songs} />
           {/* <Route exact path='/work/:id' component={Song} /> */}
           {/* <Redirect to='/home' /> */}
         </>

@@ -9,7 +9,7 @@ function Artists({ artists }) {
   const makeArtists = artists.map(artist => {
     return (<Link to={`/artist/${artist.id}`} key={artist.id} ><Artist artist={artist}/></Link>);
   });
-  
+
   return (
     <>
       <ul>
@@ -20,7 +20,7 @@ function Artists({ artists }) {
 }
 
 Artists.propTypes = {
-  artists: PropTypes.array
+  artists: PropTypes.array.isRequired
 };
 
 export default Artists;
