@@ -4,24 +4,27 @@ import Artists from './artists/Artists';
 
 export default class Search extends Component {
   state = {
-    artists: []
+    // artists: [],
+    query: null
   };
 
 
-  onSubmit() {
+  onSubmit(event) {
+    event.preventDefault();
     console.log('hello');
 
   }
 
   render() {
+    const { query } = this.state;
     return (
       < >
       <h1>Sup Searchie</h1>
-      <form>
+      <form onSubmit={this.onSubmit}>
         <input type="text"></input>
-        <button onClick={this.onSubmit}>Yo</button>
+        <button>Yo</button>
       </form>
-      <Artists/>
+      <Artists query={query}/>
       </>
     );
   }
