@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
 import Artists from './artists/Artists';
-
+import { getArtists } from '../services/getArtistsApi';
 
 export default class Search extends Component {
   state = {
+    artists: [],
     query: ''
   };
-  
-  handleSubmit = event => {
-    event.preventDefault();
-    // this.handleChange(event);
-    console.log('form submitted', event);
+
+  getSearchedArtists() {
+    getArtists(this.state.query)  
+      .then(response => {
+        this.setState({ artists: response.artists });
+      });
+  }
+ 
+  handleSearch = ({ target }) => {
+    this.setState({ [target.name]: target.value }, () => {
+      console.log('hello', this.state);
+    });
   }
 
-  handleChange = event => {
-    // const { query } = this.state;
-    console.log(event.target.value);
-    this.setState({ query: event.target.value });
+  onSubmit = event => {
+    event.preventDefault();
+    this.getSearchedArtists();
   }
 
   render() {
-    const { query } = this.state;
+    const { artists } = this.state;
     return (
       < >
       <h1>Sup Searchie</h1>
-      <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleChange} value={this.query} type="text" name="query" />
+      <form onSubmit={this.onSubmit}>
+        <input type="text" name="query" onChange={this.handleSearch} />
         <button>Yo</button>
       </form>
-      {query && <Artists query={query}/>}
+     {artists && <Artists artists={artists}/>}
       </>
     );
   }

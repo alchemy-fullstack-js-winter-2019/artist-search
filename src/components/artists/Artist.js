@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 function Artist({ artist }) {
   
-
   return (
       <>
       <li>
