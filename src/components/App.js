@@ -7,9 +7,7 @@ import {
 import Search from './search/Search';
 import Artist from './artist/Artist';
 
-
 export default class App extends Component {
-   
 
     render() {
         return (
@@ -22,9 +20,3 @@ export default class App extends Component {
         );
     }
 }
-
-
-
-
-
-

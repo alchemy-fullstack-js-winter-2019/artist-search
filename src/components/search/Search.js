@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react';
-import { getArtist, getWorks } from '../services/musicbrainApi';
+import { getArtist } from '../services/musicbrainApi';
 import SearchResults from './SearchResults';
 
 export default class Search extends PureComponent {
     state = {
         artist: '',
         results: [],
-        selectedArtist: '',
-        works: ''
+        selectedArtist: ''
     };
 
     handleSearch = ({ target }) => {
@@ -20,14 +19,7 @@ export default class Search extends PureComponent {
                 this.setState({ results: res.artists });
             });
     }
-    // getWorksApi  = (event) => {
-    //     event.preventDefault();
-    //     getWorks(this.state.selectedArtist)
-    //         .then(res => {
-    //             this.setState({ works: res.works });
-    //             console.log(res.works);
-    //         });
-    // }
+    
 
     render() {
         const { results, artist } = this.state;
