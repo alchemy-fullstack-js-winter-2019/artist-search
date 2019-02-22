@@ -5,7 +5,7 @@ import Artists from './artists/Artists';
 export default class Search extends Component {
   state = {
     // artists: [],
-    query: ''
+    query: 'Nirvana'
   };
 
 
