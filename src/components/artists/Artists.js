@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Artist from './Artist';
 import { withPaging } from '../paging/Paging';
 import { getArtists } from '../services/artistApi';
+import { Link } from 'react-router-dom';
 
 export default class Artists extends PureComponent {
   state = {
@@ -32,7 +33,7 @@ export default class Artists extends PureComponent {
   render() {
     const artists = this.state.artists.map(artist => {
       return (
-        <Artist key={artist.id} artist={artist} />
+        <Link key={artist.id} to={`/artistDetail/${artist.id}`}> <Artist artist={artist} /></Link>
       );
     });
     return (

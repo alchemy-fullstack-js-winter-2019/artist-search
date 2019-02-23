@@ -10,3 +10,16 @@ export const getArtists = ({ page, search }) => {
       results: json.artists
     }));
 };
+
+export const getArtistDetail = (id) => {
+  return fetch(`http://musicbrainz.org/ws/2/artist/${id}?fmt=json&inc=works`, {
+    headers: {
+      'origin': null
+    }
+  })
+    .then(res => res.json())
+    .then(json => ({
+      results: json.works
+    }));
+};
+
