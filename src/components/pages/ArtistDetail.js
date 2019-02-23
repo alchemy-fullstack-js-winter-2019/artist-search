@@ -28,7 +28,7 @@ export default class ArtistDetail extends PureComponent {
   render() {
     const works = this.state.works.map(work => {
       return (
-        <Link key={work.id} to={`/artistDetail/${work.id}`}><li>{work.title}</li></Link>
+        <Link key={work.id} to={`/works/${artist.name}`}><li>{work.title}</li></Link>
       );
     });
     return (

@@ -23,3 +23,15 @@ export const getArtistDetail = (id) => {
     }));
 };
 
+export const getWorkDetail = (name, title) => {
+  return fetch(`https://api.lyrics.ovh/v1/${name}/${title}`, {
+    headers: {
+      'origin': null
+    }
+  })
+    .then(res => res.json())
+    .then(json => ({
+      results: json.lyrics
+    }));
+};
+

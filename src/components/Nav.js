@@ -15,7 +15,7 @@ export default function Nav() {
       <>
         <Link to="/">Home</Link>
         <Switch>
-          <Route path="/work" component={Work} />
+          <Route path="/works/:name/:title" component={Work} />
           <Route path="/artistDetail/:id" component={ArtistDetail} />
           <Route path="/" component={Search} />
         </Switch>
