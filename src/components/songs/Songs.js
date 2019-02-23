@@ -1,18 +1,30 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 // import Song from './Song';
-// import getArtistSongs from '../../services/getArtistsApi';
+import { getArtistSongs } from '../../services/getArtistsApi';
 
 
 class Songs extends PureComponent {
     static propTypes = {
-      songs: PropTypes.array
+      match: PropTypes.shape({ 
+        params: PropTypes.shape({ 
+          id: PropTypes.string
+        })
+      })
     };
-
+   
+    getSongs = () => {
+      console.log(this.props.match.params.id);
+      getArtistSongs(this.artistId)
+        .then(response => {
+          console.log('response', response);
+        });
+    }
     render() {
+      console.log(this.props.match.params.id);
       return (
         <ul>
-          <h2>Hello world</h2>
+          <button onClick={this.getSongs}> Songs </button>
         </ul>
       );
     }
