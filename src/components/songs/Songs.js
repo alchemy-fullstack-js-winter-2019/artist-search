@@ -14,8 +14,7 @@ class Songs extends PureComponent {
     };
    
     getSongs = () => {
-      console.log(this.props.match.params.id);
-      getArtistSongs(this.artistId)
+      getArtistSongs(this.props.match.params.id)
         .then(response => {
           console.log('response', response);
         });
