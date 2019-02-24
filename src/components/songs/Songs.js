@@ -25,7 +25,7 @@ export default class Songs extends PureComponent {
     }
     render() {
       const { works } = this.state;
-      console.log(this.props.match.params.id);
+      // console.log(this.props.match.params.id);
       return (
         <>
         <button onClick={this.getSongs}> Get Songs</button>
