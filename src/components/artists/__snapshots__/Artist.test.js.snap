@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist matches a snapshot 1`] = `
+<li>
+  <h2>
+    Nirvana
+  </h2>
+  <h3>
+    US
+  </h3>
+</li>
+`;
