@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
 import Artists from './artists/Artists';
 import { getArtists } from '../services/getArtistsApi';
+import Paging from './paging/Paging';
 
 export default class Search extends Component {
   state = {
     artists: [],
-    query: ''
+    query: '',
+    currentPage: 1,
+    totalPages: null
+  };
+
+  makeOffset = () => {
+    return (this.state.currentPage - 1) * 25;
+  };
+
+  makeTotalPages = count => {
+    return count / 25;
   };
 
   getSearchedArtists() {
-    getArtists(this.state.query)  
+    const offset = this.makeOffset();
+    getArtists(this.state.query, offset)  
       .then(response => {
-        this.setState({ artists: response.artists });
+        const count = this.makeTotalPages(response.count);
+
+        this.setState({ 
+          artists: response.artists,
+          totalPages: count 
+        });
       });
   }
  
@@ -24,8 +41,20 @@ export default class Search extends Component {
     this.getSearchedArtists();
   };
 
+  increaseCount = () => {
+    const { currentPage, totalPages } = this.state;
+    if(currentPage === totalPages) return;
+    this.setState({ currentPage: currentPage + 1 });
+  };
+
+  decreaseCount = () => {
+    const { currentPage } = this.state;
+    if(currentPage === 1) return;
+    this.setState({ currentPage: currentPage - 1 });
+  };
+
   render() {
-    const { artists } = this.state;
+    const { artists, currentPage, totalPages } = this.state;
     return (
       < >
       <h1>Sup Searchie</h1>
@@ -33,6 +62,12 @@ export default class Search extends Component {
         <input type="text" name="query" onChange={this.handleSearch} />
         <button>Yo</button>
       </form>
+      {totalPages && <Paging
+        currentPage={currentPage}
+        totalPages={totalPages}
+        increaseCount={this.increaseCount}
+        decreaseCount={this.decreaseCount}
+      />}
      {artists && <Artists artists={artists}/>}
       </>
     );
