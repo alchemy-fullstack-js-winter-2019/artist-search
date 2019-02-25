@@ -11,17 +11,11 @@ export default class ArtistDetail extends PureComponent {
     match: PropTypes.object
   }
 
-  // fetchArtists = async() => {
-  //   const works = await getArtistDetail(this.props.match.params.id);
-  //   this.setState({ works });
-  // };
-
   componentDidMount() {
     getArtistDetail(this.props.match.params.id)
       .then(res => {
         this.setState({ works: res.results });
       });
-    // this.fetchArtists();
   }
 
 
