@@ -33,7 +33,7 @@ export default class Artists extends PureComponent {
   render() {
     const artists = this.state.artists.map(artist => {
       return (
-        <Link key={artist.id} to={`/artistDetail/${artist.id}`}> <Artist artist={artist} /></Link>
+        <Link key={artist.id} to={`/artistDetail/${artist.name}/${artist.id}`}> <Artist artist={artist} /></Link>
       );
     });
     return (

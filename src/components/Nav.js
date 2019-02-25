@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from './Search';
-import Work from './Work';
+import WorkDetail from './pages/WorkDetail';
 import ArtistDetail from './pages/ArtistDetail';
 import {
   BrowserRouter as Router,
@@ -15,8 +15,8 @@ export default function Nav() {
       <>
         <Link to="/">Home</Link>
         <Switch>
-          <Route path="/works/:name/:title" component={Work} />
-          <Route path="/artistDetail/:id" component={ArtistDetail} />
+          <Route path="/works/:name/:title" component={WorkDetail} />
+          <Route path="/artistDetail/:name/:id" component={ArtistDetail} />
           <Route path="/" component={Search} />
         </Switch>
       </>
