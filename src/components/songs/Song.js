@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { getLyrics } from '../../services/getArtistsApi';
+import SongLyric from './SongLyric';
 
-function Song({ works }) {
-  const listOfSongs = works.map(work => {
-    return <li key={work.id} song={work}> {work.title} </li>;
-  });
-  return (
-    <h1> {listOfSongs} </h1>
-  );
+export default class Song extends Component {
+  state = {
+    songLyrics: ''
+  };
+
+  static propTypes = {
+    workTitle: PropTypes.array.isRequired,
+    artistName: PropTypes.string
+  };
+
+  getSongLyrics = () => {
+    console.log(this.props.artistName, 'hello');
+    getLyrics(this.props.artistName, this.props.workTitle)
+      .then(response => {
+        this.setState({ songLyrics: response.songLyrics });
+      });
+  }
+
+  render() {
+    const { songLyrics } = this.state;
+    return (
+      <>
+        <button onClick={this.getSongLyrics}> Get Lyrics </button>
+        <SongLyric songLyrics={songLyrics} />
+      </>
+    );
+  }
 }
 
-Song.propTypes = {
-  works: PropTypes.array
-};
-
-export default Song;
