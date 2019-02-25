@@ -44,13 +44,18 @@ export default class Search extends Component {
   increaseCount = () => {
     const { currentPage, totalPages } = this.state;
     if(currentPage === totalPages) return;
-    this.setState({ currentPage: currentPage + 1 });
+    this.setState({ currentPage: currentPage + 1 }, () => {
+      this.getSearchedArtists();
+    });
   };
 
   decreaseCount = () => {
     const { currentPage } = this.state;
     if(currentPage === 1) return;
-    this.setState({ currentPage: currentPage - 1 });
+    this.setState({ currentPage: currentPage - 1 }, () => {
+      this.getSearchedArtists();
+    });
+    
   };
 
   render() {
