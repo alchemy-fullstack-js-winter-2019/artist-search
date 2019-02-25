@@ -16,7 +16,7 @@ export default class Search extends Component {
   };
 
   makeTotalPages = count => {
-    return count / 25;
+    return Math.floor(count / 25);
   };
 
   getSearchedArtists() {
