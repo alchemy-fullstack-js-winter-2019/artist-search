@@ -5,9 +5,9 @@ import {
   // Redirect,
   // Link 
 } from 'react-router-dom';
-import Search from '../src/components/Search';
-import Songs from '../src/components/songs/Songs';
-import Song from '../src/components/songs/Song';
+import Search from './Search';
+import Songs from './songs/Songs';
+import Song from './songs/Song';
 
 function App() {
   return (
