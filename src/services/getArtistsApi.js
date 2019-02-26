@@ -18,11 +18,10 @@ export const getArtistSongs = (artistID) => {
 };
 
 export const getLyrics = (artistName, songLyrics) => {
-  console.log(artistName, songLyrics, 'api');
   return fetch(`https://api.lyrics.ovh/v1/${artistName}/${songLyrics}`)
     .then(res => res.json())
     .then(json => ({
-      songLyrics: json.songLyrics
+      songLyrics: json.lyrics
     }));
 };
 
