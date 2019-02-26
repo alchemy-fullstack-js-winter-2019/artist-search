@@ -1,32 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Song matches a snapshot 1`] = `
-<h1>
-   
-  <li
-    song={
-      Object {
-        "id": "02b2de82-9f31-3683-b112-419e1b86b1c5",
-        "title": "Beans",
-      }
-    }
+Array [
+  <button
+    onClick={[Function]}
   >
-     
-    Beans
-     
-  </li>
-  <li
-    song={
-      Object {
-        "id": "05ad4550-a38e-3cda-972c-900b3d335724",
-        "title": "Carmen: Acte I, No. 5. Havanaise : « L'amour est un oiseau rebelle » (Carmen, chœur)",
-      }
-    }
-  >
-     
-    Carmen: Acte I, No. 5. Havanaise : « L'amour est un oiseau rebelle » (Carmen, chœur)
-     
-  </li>
-   
-</h1>
+     Get Lyrics 
+  </button>,
+  <h1>
+    
+  </h1>,
+]
 `;

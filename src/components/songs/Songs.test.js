@@ -8,7 +8,6 @@ describe('Songs', () => {
   it('simulates click events', done => {
     const match = { params: { id: 'Beans' } };
     const wrapper = shallow(<Songs match={match}/>);
-    expect(wrapper.find('button').simulate('click'));
     setTimeout(() => {
       expect(wrapper.state().works).toHaveLength(25);
       done();
