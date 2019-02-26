@@ -46,9 +46,9 @@ export const withPaging = ComponentToPage => {
 function Paging({ currentPage, totalPages, increment, decrement }) {
   return (
     <>
-      {currentPage > 1 && <button onClick={decrement}>Back</button>}
+      {currentPage > 1 && <button className="back" onClick={decrement}>Back</button>}
       <span>{currentPage} / {totalPages}</span>
-      {currentPage < totalPages && <button onClick={increment}>Forward</button>}
+      {currentPage < totalPages && <button className="forward" onClick={increment}>Forward</button>}
     </>
   );
 }
