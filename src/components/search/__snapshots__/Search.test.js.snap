@@ -12,15 +12,23 @@ Array [
         name="artist"
         onChange={[Function]}
         type="text"
-        value=""
+        value="nirvana"
       />
     </label>
     <button
+      id="submit"
       onClick={[Function]}
     >
       Search
     </button>
   </form>,
+  <div>
+    <span>
+      1
+      /
+      1
+    </span>
+  </div>,
   <div>
     <ul />
   </div>,

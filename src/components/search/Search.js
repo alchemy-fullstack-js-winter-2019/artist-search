@@ -4,7 +4,7 @@ import SearchResults from './SearchResults';
 
 export default class Search extends PureComponent {
     state = {
-        artist: '',
+        artist: 'nirvana',
         results: [],
         selectedArtist: '',
         totalPages: 1,
@@ -15,7 +15,7 @@ export default class Search extends PureComponent {
         this.setState({ [target.name]: target.value });
     }
 
-    getArtistApi  = (event) => {
+    getArtistApi = (event) => {
         event.preventDefault();
         getArtist(this.state.artist, this.state.page)
             .then(res => {
@@ -47,7 +47,7 @@ export default class Search extends PureComponent {
                     <label>Search for Artist
                         <input type="text" name="artist" value={artist} onChange={this.handleSearch}/>
                     </label>
-                    <button onClick={this.getArtistApi}>Search</button>
+                    <button id="submit" onClick={this.getArtistApi}>Search</button>
                 </form>
                 <div>
                     {page > 1 && <button onClick={this.decrementPage}>PREV</button> }
