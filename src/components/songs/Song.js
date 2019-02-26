@@ -10,13 +10,14 @@ export default class Song extends Component {
 
   static propTypes = {
     workTitle: PropTypes.string.isRequired,
-    artistName: PropTypes.string
+    artistName: PropTypes.string.isRequired
   };
 
   getSongLyrics = () => {
     console.log(this.props.artistName, 'hello');
     getLyrics(this.props.artistName, this.props.workTitle)
       .then(response => {
+        console.log('response', response.songLyrics);
         this.setState({ songLyrics: response.songLyrics });
       });
   }

@@ -27,10 +27,9 @@ export default class Songs extends PureComponent {
         });
     }
     render() {  
-      console.log(this.props.match.params.id);
-
-      const listOfSongs = this.state.works.map(work => {
-        return (<Link to={`/work/${work.title}` } key={work.id}> <Song artistName={this.state.artistName} workTitle={work.title} /> {work.title} </Link>);
+      const { artistName, works } = this.state;
+      const listOfSongs = works.map(work => {
+        return (<Link to={`/work/${artistName}/${work.title}` } key={work.id}> <Song artistName={artistName} workTitle={work.title} /> {work.title} </Link>);
       });
       return (
         <>
