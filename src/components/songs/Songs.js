@@ -2,11 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Song from './Song';
 import { getArtistSongs } from '../../services/getArtistsApi';
+import { Link } from 'react-router-dom';
+
 
 
 export default class Songs extends PureComponent {
   state = {
-    works: []
+    works: [],
+    artistName: ''
   };
 
     static propTypes = {
@@ -17,19 +20,20 @@ export default class Songs extends PureComponent {
       })
     };
    
-    getSongs = () => {
+    componentDidMount() {
       getArtistSongs(this.props.match.params.id)
         .then(response => {
-          this.setState({ works: response.works });
+          this.setState({ works: response.works, artistName: response.name });
         });
     }
-    render() {
-      const { works } = this.state;
-      // console.log(this.props.match.params.id);
+    render() {  
+      const { artistName, works } = this.state;
+      const listOfSongs = works.map(work => {
+        return (<Link to={`/work/${artistName}/${work.title}` } key={work.id}> <Song /> {work.title} </Link>);
+      });
       return (
         <>
-        <button onClick={this.getSongs}> Get Songs</button>
-        {works && <Song works={works} /> }
+        <h1> {listOfSongs}</h1>
         </>
       );
     }
