@@ -1,9 +1,10 @@
 
-export const getArtists = (artistName) => {
-  return fetch(`http://musicbrainz.org/ws/2/artist?query=${artistName}&fmt=json&limit=25`)
+export const getArtists = (artistName, offset) => {
+  return fetch(`http://musicbrainz.org/ws/2/artist?query=${artistName}&fmt=json&limit=25&offset=${offset}`)
     .then(res => res.json())
     .then(json => ({
-      artists: json.artists
+      artists: json.artists,
+      count: json.count
     }));
 };
 
