@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchedArtist from './SearchedArtist';
+import { withPaging } from '../paging/Paging';
 
 function SearchResults({ results }) {
     const searchList = results.map(searched => {
@@ -18,4 +19,4 @@ SearchResults.propTypes = {
     results: PropTypes.array,
 };
 
-export default SearchResults;
+export default withPaging(SearchResults);

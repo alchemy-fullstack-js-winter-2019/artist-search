@@ -6,7 +6,9 @@ export default class Search extends PureComponent {
     state = {
         artist: '',
         results: [],
-        selectedArtist: ''
+        selectedArtist: '',
+        totalPages: 1,
+        page: 1
     };
 
     handleSearch = ({ target }) => {
@@ -15,9 +17,11 @@ export default class Search extends PureComponent {
 
     getArtistApi  = (event) => {
         event.preventDefault();
-        getArtist(this.state.artist)
+        getArtist(this.state.artist, this.state.page)
             .then(res => {
+                console.log('res', res);
                 this.setState({ results: res.artists });
+                this.setState({ totalPages: res.totalPages });
             });
     }
     
