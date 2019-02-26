@@ -12,7 +12,7 @@ Array [
         name="artist"
         onChange={[Function]}
         type="text"
-        value="nirvana"
+        value=""
       />
     </label>
     <button

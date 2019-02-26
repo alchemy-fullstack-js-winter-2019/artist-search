@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Search from './Search';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
+// import sinon from 'sinon';
 
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

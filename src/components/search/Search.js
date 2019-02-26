@@ -4,7 +4,7 @@ import SearchResults from './SearchResults';
 
 export default class Search extends PureComponent {
     state = {
-        artist: 'nirvana',
+        artist: '',
         results: [],
         selectedArtist: '',
         totalPages: 1,
