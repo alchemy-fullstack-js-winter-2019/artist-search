@@ -9,18 +9,20 @@ export default class Song extends Component {
   };
 
   static propTypes = {
-    workTitle: PropTypes.string.isRequired,
-    artistName: PropTypes.string.isRequired
+    match: PropTypes.shape({ 
+      params: PropTypes.shape({ 
+        artist: PropTypes.string,
+        song: PropTypes.string
+      })  
+    })
   };
 
   getSongLyrics = () => {
-    console.log(this.props.artistName, 'hello');
-    getLyrics(this.props.artistName, this.props.workTitle)
+    getLyrics(this.props.match.params.artist, this.props.match.params.song)
       .then(response => {
-        console.log('response', response.songLyrics);
         this.setState({ songLyrics: response.songLyrics });
       });
-  }
+  };
 
   render() {
     const { songLyrics } = this.state;
