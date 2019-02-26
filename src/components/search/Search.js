@@ -30,12 +30,15 @@ export default class Search extends PureComponent {
     incrementPage = () => {
         this.setState({ page: this.state.page + 1 });
     };
-    componentDidUpdate() {
-        getArtist(this.state.artist, this.state.page)
-            .then(res => {
-                this.setState({ results: res.artists });
-                this.setState({ totalPages: res.totalPages });
-            });
+    componentDidUpdate(prevProps, prevState) {
+
+        if(prevState.artist !== this.state.artist) {
+            getArtist(this.state.artist, this.state.page)
+                .then(res => {
+                    this.setState({ results: res.artists });
+                    this.setState({ totalPages: res.totalPages });
+                });
+        }
     }
 
     render() {
@@ -43,11 +46,11 @@ export default class Search extends PureComponent {
         return (
             <>
                 <h1> ARTIST SEARCH COMP</h1>
-                <form>
+                <form onSubmit={this.getArtistApi}>
                     <label>Search for Artist
                         <input type="text" name="artist" value={artist} onChange={this.handleSearch}/>
                     </label>
-                    <button id="submit" onClick={this.getArtistApi}>Search</button>
+                    <button >Search</button>
                 </form>
                 <div>
                     {page > 1 && <button onClick={this.decrementPage}>PREV</button> }

@@ -2,13 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Search from './Search';
 import { shallow } from 'enzyme';
-// import sinon from 'sinon';
-
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({ adapter: new Adapter() });
-
 
 jest.mock('../services/musicbrainApi.js');
 
@@ -21,26 +14,16 @@ describe('Search Test', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it('can search', () => {
-        const onClick = jest.fn();
-        const wrapper = shallow(
-            <Search  onClick={onClick}/>
-        );
-        wrapper.find('#submit').simulate('click', {
+
+    it('Enzyme Search', (done) => {
+        const wrapper = shallow(<Search />);
+    
+        wrapper.find('form').simulate('submit', { 
             preventDefault: jest.fn()
         });
-        expect(onClick).toHaveBeenCalled(1);
+        setTimeout(() => {
+            expect(wrapper.state().results).toHaveLength(10);
+            done();
+        }, 500);
     });
-
-
-    // it('simulates click events', () => {
-    //     const onButtonClick = sinon.spy();
-    //     const wrapper = mount((
-    //         <Search onButtonClick={onButtonClick} />
-    //     ));
-    //     wrapper.find('button').simulate('click');
-    //     expect(onButtonClick).to.have.property('callCount', 1);
-    // });
-
-
 });

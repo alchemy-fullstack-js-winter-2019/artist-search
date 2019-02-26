@@ -5,7 +5,9 @@ Array [
   <h1>
      ARTIST SEARCH COMP
   </h1>,
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <label>
       Search for Artist
       <input
@@ -15,10 +17,7 @@ Array [
         value=""
       />
     </label>
-    <button
-      id="submit"
-      onClick={[Function]}
-    >
+    <button>
       Search
     </button>
   </form>,
