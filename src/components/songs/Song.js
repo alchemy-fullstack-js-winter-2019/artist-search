@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getLyrics } from '../../services/getArtistsApi';
-import SongLyric from './SongLyric';
+import SongLyrics from './SongLyric';
 
 export default class Song extends Component {
   state = {
@@ -9,7 +9,7 @@ export default class Song extends Component {
   };
 
   static propTypes = {
-    workTitle: PropTypes.array.isRequired,
+    workTitle: PropTypes.string.isRequired,
     artistName: PropTypes.string
   };
 
@@ -26,7 +26,7 @@ export default class Song extends Component {
     return (
       <>
         <button onClick={this.getSongLyrics}> Get Lyrics </button>
-        <SongLyric songLyrics={songLyrics} />
+        <SongLyrics songLyrics={songLyrics} />
       </>
     );
   }
