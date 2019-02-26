@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export const withPaging = ComponentToPage => {
     class WithPaging extends Component {
       state ={
-          page: 0,
+          page: 1,
           totalPages: 1
       };
 

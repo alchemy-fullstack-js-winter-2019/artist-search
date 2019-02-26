@@ -19,14 +19,27 @@ export default class Search extends PureComponent {
         event.preventDefault();
         getArtist(this.state.artist, this.state.page)
             .then(res => {
-                console.log('res', res);
                 this.setState({ results: res.artists });
                 this.setState({ totalPages: res.totalPages });
             });
     }
-    
+
+    decrementPage = () => {
+        this.setState({ page: this.state.page - 1 });
+    };
+    incrementPage = () => {
+        this.setState({ page: this.state.page + 1 });
+    };
+    componentDidUpdate() {
+        getArtist(this.state.artist, this.state.page)
+            .then(res => {
+                this.setState({ results: res.artists });
+                this.setState({ totalPages: res.totalPages });
+            });
+    }
+
     render() {
-        const { results, artist } = this.state;
+        const { results, artist, page, totalPages } = this.state;
         return (
             <>
                 <h1> ARTIST SEARCH COMP</h1>
@@ -36,6 +49,11 @@ export default class Search extends PureComponent {
                     </label>
                     <button onClick={this.getArtistApi}>Search</button>
                 </form>
+                <div>
+                    {page > 1 && <button onClick={this.decrementPage}>PREV</button> }
+                    <span>{page}/{totalPages}</span>
+                    { page < totalPages && <button onClick={this.incrementPage}>NEXT</button> }
+                </div>
                 <div>
                     <SearchResults
                         results={results} 
