@@ -1,5 +1,6 @@
 import {
   getText,
+  getArtistText
 } from './search';
 
 describe('selectors', () => {
@@ -13,5 +14,9 @@ describe('selectors', () => {
 
   it('returns text from state', () => {
     expect(getText(state)).toEqual('nirv');
+  });
+  
+  it('returns artistText from state', () => {
+    expect(getArtistText(state)).toEqual('nirvana');
   });
 });
