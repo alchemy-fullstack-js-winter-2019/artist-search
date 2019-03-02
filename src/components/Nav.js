@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from './Search';
+import Search from '../containers/Search';
 import WorkDetail from './pages/WorkDetail';
 import ArtistDetail from './pages/ArtistDetail';
 import {

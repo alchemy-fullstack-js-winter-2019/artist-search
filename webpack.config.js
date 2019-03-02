@@ -3,14 +3,12 @@ const CleanPlugin = require('clean-webpack-plugin');
 
 // eslint-disable-next-line no-undef
 module.exports = {
-  entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
-    publicPath: '/',
     filename: 'bundle.[hash].js'
   },
   devServer: {
-    port: 7890,
-    historyApiFallback: true,
+    port: 7890
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
@@ -24,7 +22,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
             cacheDirectory: true
           }
         }

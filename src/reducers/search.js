@@ -12,7 +12,7 @@ export default function reducer(state = initialState, action) {
     case UPDATE_INPUT:
       return {
         ...state,
-        [state[action.payload.name]]: action.payload.value
+        [action.payload.name]: action.payload.value
       };
     default:
       return state;
