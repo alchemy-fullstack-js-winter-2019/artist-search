@@ -22,7 +22,7 @@ export default class Artists extends PureComponent {
 
   componentDidUpdate(prevProps) {
     if(prevProps.artistText !== this.props.artistText || prevProps.page !== this.props.page) {
-      getArtists({ search: this.props.artistText, page: this.props.page })
+      getArtists({ search: this.props.artistText, page: this.props.page - 1 })
         .then(res => {
           this.setState({ artists: res.results });
           this.props.updateTotalPages(res.totalPages);

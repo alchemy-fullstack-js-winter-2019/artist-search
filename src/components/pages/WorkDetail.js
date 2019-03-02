@@ -14,7 +14,8 @@ export default class ArtistDetail extends PureComponent {
     const { name, title } = this.props.match.params;
     getWorkDetail(name, title)
       .then(res => {
-        this.setState({ lyrics: res.results });
+        const lyrics = res.results;
+        this.setState({ lyrics: lyrics ? lyrics : 'This song has no words!' });
       });
   }
 
