@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist renders an artist 1`] = `
+<Fragment>
+  <h2>
+    bob
+  </h2>
+  <p>
+    Country: 
+    usa
+  </p>
+</Fragment>
+`;

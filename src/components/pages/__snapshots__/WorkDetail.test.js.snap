@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Work Details renders work lyrics 1`] = `
+<Fragment>
+  <h2>
+    Bob and his Greatest Hits
+    :
+  </h2>
+</Fragment>
+`;
