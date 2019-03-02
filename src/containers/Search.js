@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ArtistsWithPaging } from './artists/Artists';
+import { ArtistsWithPaging } from '../components/artists/Artists';
 
 export default class Search extends Component {
   state = {
