@@ -1,5 +1,5 @@
 export const getArtists = ({ page, search }) => {
-  return fetch(`http://musicbrainz.org/ws/2/artist?query=${search}&fmt=json&offset=${page}`, {
+  return fetch(`http://musicbrainz.org/ws/2/artist?query=${search}&fmt=json&offset=${page - 1}`, {
     headers: {
       'origin': null
     }
