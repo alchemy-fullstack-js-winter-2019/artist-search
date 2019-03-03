@@ -23,7 +23,6 @@ const results = [
 
 export const getArtists = () => {
   return Promise.resolve({
-    totalPages: '4',
     results
   });
 };
