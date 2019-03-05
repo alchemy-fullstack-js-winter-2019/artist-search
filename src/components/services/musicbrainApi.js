@@ -12,12 +12,14 @@ export const getArtist = (artist, page = 1) => {
             totalPages: Math.ceil(json.count / PAGE_SIZE),
         }));
 };
+
 export const getWorks = (id) => {
     return fetch(`http://musicbrainz.org/ws/2/artist/${id}?fmt=json&inc=works`)
         .then(res => {
             return res.json();
         });
 };
+
 export const getLyrics = (title, artist) => {
     return fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
         .then(res => {
