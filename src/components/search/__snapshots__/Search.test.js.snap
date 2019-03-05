@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Test matches a snapshot 1`] = `
+Array [
+  <h1>
+     ARTIST SEARCH COMP
+  </h1>,
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Search for Artist
+      <input
+        name="artist"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <button>
+      Search
+    </button>
+  </form>,
+  <div>
+    <span>
+      1
+      /
+      1
+    </span>
+  </div>,
+  <div>
+    <ul />
+  </div>,
+]
+`;
