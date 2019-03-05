@@ -436,6 +436,6 @@ export const getArtist = () => {
 
     return Promise.resolve({ 
         artists, 
-        totalPages: 5
+        totalPages: 1
     });
 };
