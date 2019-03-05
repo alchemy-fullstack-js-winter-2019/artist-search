@@ -31,7 +31,7 @@ export default class Search extends PureComponent {
     incrementPage = () => {
         this.setState({ page: this.state.page + 1 });
     };
-    
+
     componentDidUpdate(prevProps, prevState) {
 
         if(prevState.artist !== this.state.artist) {
@@ -68,3 +68,4 @@ export default class Search extends PureComponent {
         );
     }
 }
+
