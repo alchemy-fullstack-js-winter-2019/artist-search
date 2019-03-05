@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const withPaging = ComponentToPage => {
     class WithPaging extends Component {
-      state ={
+      state = {
           page: 1,
           totalPages: 1
       };
