@@ -6,7 +6,7 @@ export const getArtists = ({ page, search }) => {
   })
     .then(res => res.json())
     .then(json => ({
-      totalPages: Math.ceil(json.count / 25),
+      totalPages: json.count,
       results: json.artists
     }));
 };
@@ -30,8 +30,11 @@ export const getWorkDetail = (name, title) => {
     }
   })
     .then(res => res.json())
-    .then(json => ({
-      results: json.lyrics
-    }));
+    .then(json => {
+      const lyrics = json.lyrics;
+      return {
+        results: lyrics ? lyrics : null
+      };
+    });
 };
 
