@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { getArtists } from '../services/artistsApi';
 import Artist from '../components/artists/Artist';
 
@@ -18,19 +18,18 @@ export default class Search extends PureComponent {
   }
 
   render() {
-    // const artists = this.state.artists.map(artist => {
-    //   return (
-        
-    //   );
-    // })
+    const artists = this.state.artists.map(artist => {
       return (
-        
-        <>
+        <Artist key={artist.id} artist={artist} />
+      );
+    });
+    return (
+      <>
         <h1>HELLO</h1>
         <ul>
-        {/* {artists} */}
-      </ul>
-        </>
+          {artists}
+        </ul>
+      </>
     );
   }
 }

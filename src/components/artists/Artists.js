@@ -1,7 +1,7 @@
 // import React, { PureComponent } from 'react';
 // import PropTypes from 'prop-types';
 // import Artist from './Artist';
-// // import { getArtists } from '../../services/artistsApi';
+// import { getArtists } from '../../services/artistsApi';
 
 // export class Artists extends PureComponent {
 //   static propTypes = {
@@ -22,7 +22,7 @@
 // }
 
 // Artists.propTypes = {
-//   artist: PropTypes.array.isRequired
+//   artist: PropTypes.array
 // };
 
 // export default Artists;
