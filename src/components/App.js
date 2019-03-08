@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Search from './Search';
+import Search from './artists/Search';
 import Paging from './paging/Paging';
 
 export default class App extends Component {
@@ -20,6 +20,8 @@ export default class App extends Component {
     this.setState({ totalPages: updatedPages });
   };
 
+ 
+
   render() { 
     const { currentPage, totalPages } = this.state;
 
@@ -34,6 +36,7 @@ export default class App extends Component {
         <Search
           page={currentPage}
           updateTotalPages={this.updateTotalPages}
+          onChange={this.handleChange}
         />   
       </>   
     );
