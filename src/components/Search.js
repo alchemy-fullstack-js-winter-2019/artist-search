@@ -1,38 +1,46 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { getArtists } from '../services/artistsApi';
 import Artist from '../components/artists/Artist';
 
-export default class Search extends Component {
+export default class Search extends PureComponent {
   state = {
     text: '',
-    results: []
+    artists: []
   };
 
   componentDidMount() {
     getArtists()
       .then(response => {
-        this.setState({ artists });
+        console.log('REZZY!', response);
+        this.setState({ artists: response.results });
       });
   }
 
   render() {
-    const artists = this.state.artists.map(artist => {
+    // const artists = this.state.artists.map(artist => {
+    //   return (
+        
+    //   );
+    // })
       return (
-        <Artist key={artist.id} artist={artist}/>
-      // <>
-      //   <h1>Search for an Artist:</h1>
-      //   <form>
-      //     <input name="text" value={text} onChange={this.handleChange}></input>
-      //     <button>SEARCH</button>
-      //   </form>
-      // </>
-      );
-
-    });
-    return (
-      <ul>
-        {artists}
+        
+        <>
+        <h1>HELLO</h1>
+        <ul>
+        {/* {artists} */}
       </ul>
+        </>
     );
   }
 }
+
+//   <Artist key={artist.id} artist={artist}/>
+//   // <>
+//   //   <h1>Search for an Artist:</h1>
+//   //   <form>
+//   //     <input name="text" value={text} onChange={this.handleChange}></input>
+//   //     <button>SEARCH</button>
+//   //   </form>
+//   // </>
+// );

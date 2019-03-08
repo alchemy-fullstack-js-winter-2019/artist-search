@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Artist from './artists/Artist';
+import Search from './Search';
 
 export default class App extends Component {
   render() { 
     return (
-      <Artist />      
+      <Search />      
     );
   }
 }
