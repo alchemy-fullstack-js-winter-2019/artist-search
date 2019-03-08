@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Artist({ artist }) {
+function Artist({ name }) {
   return (
     <>
-    <li>{artist.id}</li>
-    <li>{artist.name}</li>
+    <li>{name}</li>
     </>
   );
 }
 
 Artist.propTypes = {
-  artist: PropTypes.object.isRequired
+  name: PropTypes.string
 };
 
 export default Artist;

@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Artist from './Artist';
+// import { getArtists } from '../../services/artistsApi';
 
-function Artists({ artists }) {
-  const listOfArtists = artists.map(artist => {
-    return (<Link to={`/artist/${artist.id}`} key={artist.id}> <Artist>{artist}</Artist> </Link>);
-  });
-
-  return (
-    <ul>
-      {listOfArtists}
-    </ul>
-  );
+export class Artists extends PureComponent {
+  static propTypes = {
+    results: PropTypes.array.isRequired
+  };
+  render() {
+    const artists = this.props.results.map(artist => {
+      return (
+        <Artist key={artist.id} artist={artist}/>
+      );
+    });
+    return (
+      <ul>
+        {artists}
+      </ul>
+    );
+  }
 }
 
 Artists.propTypes = {
-  artists: PropTypes.array.isRequired
+  artist: PropTypes.array.isRequired
 };
 
 export default Artists;

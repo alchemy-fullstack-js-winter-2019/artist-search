@@ -1,17 +1,10 @@
-import React from 'react';
-import { ROUTES } from '../routes/Routes';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
+import React, { Component } from 'react';
+import Artist from './artists/Artist';
 
-export default function App(){
-  return (
-
-    <Router>
-      <div>
-        <h1>Artist Search</h1>
-        <Switch>
-          <Route component={ROUTES.ARTIST_SEARCH.Component} path={ROUTES.ARTIST_SEARCH.path} />  
-        </Switch>
-      </div>
-    </Router>
-  );
+export default class App extends Component {
+  render() { 
+    return (
+      <Artist />      
+    );
+  }
 }

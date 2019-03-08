@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getArtists } from '../services/__mocks__/artistApi';
+import { getArtists } from '../services/artistsApi';
+import Artist from '../components/artists/Artist';
 
 export default class Search extends Component {
   state = {
@@ -7,20 +8,31 @@ export default class Search extends Component {
     results: []
   };
 
-  handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
-  };
+  componentDidMount() {
+    getArtists()
+      .then(response => {
+        this.setState({ artists });
+      });
+  }
 
   render() {
-    const { text } = this.state;
+    const artists = this.state.artists.map(artist => {
+      return (
+        <Artist key={artist.id} artist={artist}/>
+      // <>
+      //   <h1>Search for an Artist:</h1>
+      //   <form>
+      //     <input name="text" value={text} onChange={this.handleChange}></input>
+      //     <button>SEARCH</button>
+      //   </form>
+      // </>
+      );
+
+    });
     return (
-      <>
-          <h1>Search for an Artist:</h1>
-          <form>
-            <input name="text" value={text} onChange={this.handleChange}></input>
-            <button>SEARCH</button>
-          </form>
-        </>
+      <ul>
+        {artists}
+      </ul>
     );
   }
 }
