@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'prop-types';
 import { getArtists } from '../../services/artistsApi';
 import Artist from './Artist';
 
@@ -9,8 +8,6 @@ export default class Search extends PureComponent {
     searchTerm: ''
   };
 
-
- 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './artists/Search';
 import Paging from './paging/Paging';
+import Artist from './artists/Artist';
 
 export default class App extends Component {
   state = {
@@ -34,6 +35,11 @@ export default class App extends Component {
           decrement={this.decrementCurrentPage}
         />
         <Search
+          page={currentPage}
+          updateTotalPages={this.updateTotalPages}
+          onChange={this.handleChange}
+        />   
+        <Artist
           page={currentPage}
           updateTotalPages={this.updateTotalPages}
           onChange={this.handleChange}

@@ -1,17 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import { getArtist } from '../../services/artistsApi';
 
-function Artist({ artist }) {
-  const { name } = artist;
-  return (
-    <>
-      <li>{name}</li>
-    </>
-  );
+export default class Artist extends PureComponent {
+  state = {
+    name: '',
+    works: []
+  };
+
+  getArtist = () => {
+    getArtist(this.state.id)
+      .then(response => {
+        this.setState({ works: response.results });
+      });
+  };
+
+  componentDidMount() {
+    this.getArtist();
+  }
+
+  render() {
+    const { name, works } = this.state;
+    return (
+      <>
+        <h1>Artist name and their works:</h1>
+        <Artist results={name} works={works}/>
+      </>
+    );
+  }
 }
-
-Artist.propTypes = {
-  artist: PropTypes.object
-};
-
-export default Artist;
