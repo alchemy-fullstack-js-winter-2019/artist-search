@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artists matches a snapshot 1`] = `
+<ul>
+  <a
+    href="/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da"
+    onClick={[Function]}
+  >
+    <li>
+      <h2>
+        Nirvana
+      </h2>
+      <h3>
+        US
+      </h3>
+    </li>
+  </a>
+  <a
+    href="/artist/9282c8b4-ca0b-4c6b-b7e3-4f7762dfc4d6"
+    onClick={[Function]}
+  >
+    <li>
+      <h2>
+        Nirvana
+      </h2>
+      <h3>
+        GB
+      </h3>
+    </li>
+  </a>
+  <a
+    href="/artist/c49d69dc-e008-47cf-b5ff-160fafb1fe1f"
+    onClick={[Function]}
+  >
+    <li>
+      <h2>
+        Nirvana
+      </h2>
+      <h3>
+        FR
+      </h3>
+    </li>
+  </a>
+</ul>
+`;

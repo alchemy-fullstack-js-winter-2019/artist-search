@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Song matches a snapshot 1`] = `
+Array [
+  <button
+    onClick={[Function]}
+  >
+     Get Lyrics 
+  </button>,
+  <h1>
+    
+  </h1>,
+]
+`;
